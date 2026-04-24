@@ -8,7 +8,7 @@ export default function Home() {
   const { state } = useGameState();
 
   return (
-    <div className="min-h-[100dvh] w-full flex flex-col items-center justify-center bg-background p-4 relative overflow-hidden">
+    <div className="min-h-[100dvh] w-full flex flex-col items-center justify-center bg-background p-4 relative overflow-hidden text-[25px]">
       {/* Background decorations */}
       <div className="absolute top-10 left-10 text-primary opacity-20 hidden md:block">
         <pre className="font-mono text-sm">
