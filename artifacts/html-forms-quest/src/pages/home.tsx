@@ -29,7 +29,7 @@ export default function Home() {
           <br />
           Quest
         </h1>
-        <p className="font-sans text-muted-foreground text-lg md:text-xl mb-12 max-w-md mx-auto">Atividade do Prof. João Coelho</p>
+        <p className="font-sans text-muted-foreground md:text-xl mb-12 max-w-md mx-auto text-[25px]">Atividade do Prof. João Coelho</p>
       </motion.div>
       <motion.div 
         initial={{ scale: 0.8, opacity: 0 }}
