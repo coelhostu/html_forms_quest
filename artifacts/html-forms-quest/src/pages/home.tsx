@@ -9,7 +9,6 @@ export default function Home() {
 
   return (
     <div className="min-h-[100dvh] w-full flex flex-col items-center justify-center bg-background p-4 relative overflow-hidden">
-      
       {/* Background decorations */}
       <div className="absolute top-10 left-10 text-primary opacity-20 hidden md:block">
         <pre className="font-mono text-sm">
@@ -19,7 +18,6 @@ export default function Home() {
 </form>`}
         </pre>
       </div>
-
       <motion.div 
         initial={{ y: -50, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
@@ -31,11 +29,8 @@ export default function Home() {
           <br />
           Quest
         </h1>
-        <p className="font-sans text-muted-foreground text-lg md:text-xl mb-12 max-w-md mx-auto">
-          Aprenda a construir formulários web em uma aventura 16-bit.
-        </p>
+        <p className="font-sans text-muted-foreground text-lg md:text-xl mb-12 max-w-md mx-auto">Atividade do Prof. João Coelho</p>
       </motion.div>
-
       <motion.div 
         initial={{ scale: 0.8, opacity: 0 }}
         animate={{ scale: 1, opacity: 1 }}
@@ -61,7 +56,6 @@ export default function Home() {
           </PixelButton>
         </Link>
       </motion.div>
-
       {state.totalScore > 0 && (
         <motion.div 
           initial={{ y: 50, opacity: 0 }}
