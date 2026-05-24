@@ -9,6 +9,7 @@ import MapPage from "@/pages/map";
 import LevelPage from "@/pages/level";
 import HowToPlay from "@/pages/how-to-play";
 import Settings from "@/pages/settings";
+import Visualizer from "@/pages/visualizer";
 
 const queryClient = new QueryClient();
 
@@ -20,6 +21,7 @@ function Router() {
       <Route path="/nivel/:id" component={LevelPage} />
       <Route path="/como-jogar" component={HowToPlay} />
       <Route path="/configuracoes" component={Settings} />
+      <Route path="/visualizar" component={Visualizer} />
       <Route component={NotFound} />
     </Switch>
   );

@@ -1,7 +1,7 @@
 import { Link } from "wouter";
 import { PixelButton } from "@/components/ui/pixel-button";
 import { useGameState } from "@/lib/store";
-import { Trophy, Play, Settings, HelpCircle } from "lucide-react";
+import { Trophy, Play, Settings, HelpCircle, BookOpen } from "lucide-react";
 import { motion } from "framer-motion";
 
 export default function Home() {
@@ -43,9 +43,15 @@ export default function Home() {
             {state.unlockedLevels.length > 1 ? "Continuar" : "Jogar"}
           </PixelButton>
         </Link>
+
+        <Link href="/visualizar" className="w-full">
+          <PixelButton variant="secondary" className="w-full flex items-center justify-center gap-2 text-xl">
+            <BookOpen className="w-5 h-5" /> Modo Laboratório
+          </PixelButton>
+        </Link>
         
         <Link href="/como-jogar" className="w-full">
-          <PixelButton variant="secondary" className="w-full flex items-center justify-center gap-2">
+          <PixelButton variant="ghost" className="w-full flex items-center justify-center gap-2 border-border bg-card">
             <HelpCircle className="w-5 h-5" /> Como Jogar
           </PixelButton>
         </Link>

@@ -4,9 +4,10 @@ import { LEVELS, Challenge } from "@/data/levels";
 import { useGameState } from "@/lib/store";
 import { audio } from "@/lib/audio";
 import { PixelButton } from "@/components/ui/pixel-button";
-import { Heart, Clock, Zap, Star, LayoutList } from "lucide-react";
+import { Heart, Clock, Zap, Star, LayoutList, Eye } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { cn } from "@/lib/utils";
+import { LiveChallengePreview } from "@/pages/visualizer";
 
 // Sub-components for challenges
 function MultipleChoiceView({ 
@@ -194,6 +195,12 @@ export default function LevelPage() {
   // Shake effect state
   const [shake, setShake] = useState(false);
 
+  const [showVisualHelp, setShowVisualHelp] = useState(false);
+
+  useEffect(() => {
+    setShowVisualHelp(false);
+  }, [challengeIdx]);
+
   useEffect(() => {
     if (level) {
       setTimeLeft(level.timeLimit);
@@ -330,15 +337,40 @@ export default function LevelPage() {
             animate={{ x: 0, opacity: 1 }}
             className={cn("pixel-box bg-card/80 p-6 md:p-10 backdrop-blur-sm", shake && "animate-[shake_0.5s_ease-in-out]")}
           >
-            <div className="text-sm font-sans text-muted-foreground uppercase mb-6 flex justify-between">
+            <div className="text-sm font-sans text-muted-foreground uppercase mb-6 flex justify-between items-center">
               <span>Desafio {challengeIdx + 1} / {level.challenges.length}</span>
-              {combo > 1 && <span className="text-accent font-bold">Combo x{combo}!</span>}
+              <div className="flex items-center gap-4">
+                {combo > 1 && <span className="text-accent font-bold">Combo x{combo}!</span>}
+                <button
+                  type="button"
+                  onClick={() => setShowVisualHelp(!showVisualHelp)}
+                  className={cn(
+                    "text-xs flex items-center gap-1 cursor-pointer transition-colors px-2 py-1 border border-border rounded bg-muted/30 font-sans tracking-wide",
+                    showVisualHelp ? "text-primary border-primary bg-primary/10" : "text-muted-foreground hover:text-foreground"
+                  )}
+                >
+                  <Eye className="w-3.5 h-3.5" /> {showVisualHelp ? "Ocultar HTML" : "Visualizar HTML"}
+                </button>
+              </div>
             </div>
 
             {currentChallenge.type === 'multiple_choice' && <MultipleChoiceView challenge={currentChallenge} onAnswer={handleAnswer} />}
             {currentChallenge.type === 'fill_in_blank' && <FillInBlankView challenge={currentChallenge} onAnswer={handleAnswer} />}
             {currentChallenge.type === 'find_bug' && <FindBugView challenge={currentChallenge} onAnswer={handleAnswer} />}
             {currentChallenge.type === 'sort_tags' && <SortTagsView challenge={currentChallenge} onAnswer={handleAnswer} />}
+
+            {showVisualHelp && (
+              <motion.div 
+                initial={{ opacity: 0, height: 0 }}
+                animate={{ opacity: 1, height: "auto" }}
+                className="mt-6 border-t-2 border-dashed border-border pt-4"
+              >
+                <div className="text-xs text-muted-foreground leading-relaxed mb-4 bg-muted/20 p-3 border border-border rounded">
+                  💡 <strong>Visualização em Tempo Real:</strong> Veja como o navegador interpreta esse elemento HTML. Você pode testar e interagir com ele!
+                </div>
+                <LiveChallengePreview challenge={currentChallenge} />
+              </motion.div>
+            )}
           </motion.div>
         )}
 
