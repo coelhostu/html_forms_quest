@@ -77,4 +77,7 @@ PORT=5000 BASE_PATH=/ pnpm --filter @workspace/html-forms-quest run build
 
 ## 📄 Licença
 
-Este projeto foi desenvolvido com fins educacionais. Sinta-se livre para utilizar, expandir e aplicar em suas aulas ou estudos!
+Este projeto foi desenvolvido com fins educacionais, com auxílio do Replit.
+O código deste repositório está licenciado sob a licença MIT.
+
+Sinta-se livre para utilizar, estudar, adaptar e aplicar em aulas ou estudos, conforme os termos da licença.
