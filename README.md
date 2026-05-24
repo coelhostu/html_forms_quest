@@ -1,5 +1,7 @@
 # 🎮 HTML Forms Quest
 
+> 🔗 **Acesse o jogo online:** [https://coelhostu.github.io/html_forms_quest/](https://coelhostu.github.io/html_forms_quest/)
+
 **HTML Forms Quest** é um jogo educativo e interativo no estilo RPG/Pixel Art desenvolvido para auxiliar estudantes e desenvolvedores a dominar a criação e validação de formulários HTML.
 
 Criado para as atividades do **Prof. João Coelho**, o jogo combina mecânicas de quizzes dinâmicos com tempo limite e um sistema de combos, tornando o aprendizado de tags semânticas, acessibilidade e validação divertido e engajador.
